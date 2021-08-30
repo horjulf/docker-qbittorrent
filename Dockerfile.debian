@@ -3,8 +3,8 @@ ARG OS_TAG=bullseye
 # Runtime
 FROM sc4h/debian-s6overlay:${OS_TAG}
 
-ARG QBITTORRENT_VERSION="4.3.5"
-ARG LIBTORRENT_VERSION="1.2.13"
+ARG QBITTORRENT_VERSION="4.3.8"
+ARG LIBTORRENT_VERSION="1.2.14"
 
 LABEL maintainer="horjulf"
 
