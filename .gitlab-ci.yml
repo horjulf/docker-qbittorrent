@@ -42,18 +42,6 @@ build:stable-edge:
     - docker build --pull --build-arg="OS_TAG=${OS_TAG}" -t "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}" .
     - docker push "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}"
 
-build:qb-master:
-  extends: .build
-  variables:
-    DOCKER_TAG: "master"
-    OS_TAG: "edge"
-    LIBTORRENT_BRANCH: "RC_1_2"
-    QBITTORRENT_BRANCH: "master"
-  script:
-    - docker build --pull --build-arg="OS_TAG=${OS_TAG}" --build-arg QBITTORRENT_BRANCH="${QBITTORRENT_BRANCH}" --build-arg LIBTORRENT_BRANCH="${LIBTORRENT_BRANCH}" -t "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}" .
-    - docker push "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}"
-  when: manual
-
 # Debian
 build:stable-debian:
   extends: .build
