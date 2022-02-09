@@ -36,6 +36,7 @@ variables:
       fi
 
       # Build
+      echo "docker build --pull -t \"${CI_REGISTRY_IMAGE}:${tag}\" -f \"${DOCKERFILE}\" ${build_args} ."
       docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" ${build_args} .
       # Push
       docker push "${CI_REGISTRY_IMAGE}:${tag}"
