@@ -30,13 +30,13 @@ variables:
   script:
     - |
       tag="${DOCKER_TAG}-${QBITTORRENT_VERSION}-${LIBTORRENT_VERSION}"
+      build_args="--build-arg=\"QBITTORRENT_VERSION=${QBITTORRENT_VERSION}\" --build-arg=\"LIBTORRENT_VERSION=${LIBTORRENT_VERSION}\""
+      if [ -n "${OS_TAG}" ]; then
+        build_args="${build_args} --build-arg=\"OS_TAG=${OS_TAG}\""
+      fi
 
       # Build
-      if [ -n "${OS_TAG}" ]; then
-        docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" --build-arg="OS_TAG=${OS_TAG}" .
-      else
-        docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" .
-      fi
+      docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" ${build_args} .
       # Push
       docker push "${CI_REGISTRY_IMAGE}:${tag}"
 
