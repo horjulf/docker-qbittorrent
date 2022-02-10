@@ -33,9 +33,9 @@ variables:
 
       # Build
       if [ -n "${OS_TAG}" ]; then
-        docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" --build-arg=\"QBITTORRENT_VERSION=${QBITTORRENT_VERSION}\" --build-arg=\"LIBTORRENT_VERSION=${LIBTORRENT_VERSION}\" --build-arg=\"OS_TAG=${OS_TAG}\" .
+        docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" --build-arg="QBITTORRENT_VERSION=${QBITTORRENT_VERSION}" --build-arg="LIBTORRENT_VERSION=${LIBTORRENT_VERSION}" --build-arg="OS_TAG=${OS_TAG}" .
       else
-        docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" --build-arg=\"QBITTORRENT_VERSION=${QBITTORRENT_VERSION}\" --build-arg=\"LIBTORRENT_VERSION=${LIBTORRENT_VERSION}\" .
+        docker build --pull -t "${CI_REGISTRY_IMAGE}:${tag}" -f "${DOCKERFILE}" --build-arg="QBITTORRENT_VERSION=${QBITTORRENT_VERSION}" --build-arg="LIBTORRENT_VERSION=${LIBTORRENT_VERSION}" .
       fi
       # Push
       docker push "${CI_REGISTRY_IMAGE}:${tag}"
