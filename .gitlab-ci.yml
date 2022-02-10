@@ -51,7 +51,7 @@ variables:
           # latest
           docker tag "${CI_REGISTRY_IMAGE}:${tag}" "${CI_REGISTRY_IMAGE}:latest"
           docker push "${CI_REGISTRY_IMAGE}:latest"
-        then
+        fi
       fi
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
