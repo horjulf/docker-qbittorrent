@@ -14,7 +14,7 @@ variables:
   services:
     - docker:20-dind
   variables:
-    QBITTORRENT_LATEST: "4.4.0"
+    QBITTORRENT_LATEST: "4.4.1"
     LIBTORRENT_LATEST: "2.0.5"
     DOCKER_TAG: ""
     DOCKERFILE: Dockerfile
