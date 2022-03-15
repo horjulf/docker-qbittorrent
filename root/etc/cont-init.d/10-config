@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 # Config folder
 QB_CONFIG="${XDG_CONFIG_HOME}/qBittorrent"
@@ -7,8 +7,8 @@ QB_CONFIG_FILE="${QB_CONFIG}/qBittorrent.conf"
 
 # Folders
 mkdir -p \
-    "${QB_CONFIG}" \
-    /config/log
+  "${QB_CONFIG}" \
+  /config/log
 
 # https://github.com/qbittorrent/qBittorrent/blob/master/src/base/settingsstorage.cpp
 if [ ! -f "${QB_CONFIG_FILE}" ]; then
@@ -35,4 +35,4 @@ fi
 
 # Permissions
 chown -R abc:abc \
-    /config
+  /config
