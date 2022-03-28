@@ -14,13 +14,15 @@ variables:
   services:
     - docker:20-dind
   variables:
-    QBITTORRENT_LATEST: "4.4.1"
+    QBITTORRENT_LATEST: "4.4.2"
     LIBTORRENT_LATEST: "2.0.5"
     DOCKER_TAG: ""
     DOCKERFILE: Dockerfile
     OS_TAG: ""
   parallel:
     matrix:
+      - QBITTORRENT_VERSION: "4.4.2"
+        LIBTORRENT_VERSION: ["2.0.5", "1.2.15"]
       - QBITTORRENT_VERSION: "4.4.1"
         LIBTORRENT_VERSION: ["2.0.5", "1.2.15"]
       - QBITTORRENT_VERSION: "4.4.0"
