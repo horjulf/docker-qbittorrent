@@ -34,5 +34,7 @@ EOL
 fi
 
 # Permissions
+if [ "${CHOWN_CONFIG:-true}" = true ]; then
 chown -R abc:abc \
   /config
+fi
