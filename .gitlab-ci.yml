@@ -24,7 +24,7 @@ variables:
       - QBITTORRENT_VERSION: "4.4.5"
         LIBTORRENT_VERSION: ["2.0.8", "1.2.18"]
       - QBITTORRENT_VERSION: "4.4.4"
-        LIBTORRENT_VERSION: ["2.0.8", "1.2.18"]
+        LIBTORRENT_VERSION: ["2.0.7", "1.2.17"]
   before_script:
     - docker login -u "${CI_REGISTRY_USER}" -p "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   script:
