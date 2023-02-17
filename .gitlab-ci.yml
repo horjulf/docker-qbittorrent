@@ -10,18 +10,18 @@ variables:
 # Build template
 .build:
   stage: build
-  image: docker:20
+  image: docker:23
   services:
-    - docker:20-dind
+    - docker:23-dind
   variables:
-    QBITTORRENT_LATEST: "4.5.0"
+    QBITTORRENT_LATEST: "4.5.1"
     LIBTORRENT_LATEST: "2.0.8"
     DOCKER_TAG: ""
     DOCKERFILE: Dockerfile
     OS_TAG: ""
   parallel:
     matrix:
-      - QBITTORRENT_VERSION: "4.5.0"
+      - QBITTORRENT_VERSION: "4.5.1"
         LIBTORRENT_VERSION: ["2.0.8", "1.2.18"]
       - QBITTORRENT_VERSION: "4.4.5"
         LIBTORRENT_VERSION: ["2.0.8", "1.2.18"]
