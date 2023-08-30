@@ -1,4 +1,4 @@
-ARG OS_TAG=bullseye
+ARG OS_TAG=bookworm
 
 # Runtime
 FROM sc4h/debian-s6overlay:${OS_TAG}

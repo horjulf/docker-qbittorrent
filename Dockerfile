@@ -1,4 +1,4 @@
-ARG OS_TAG=3.17
+ARG OS_TAG=3.18
 
 # Runtime
 FROM sc4h/alpine-s6overlay:${OS_TAG}
