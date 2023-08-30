@@ -21,7 +21,7 @@ ENV \
 # Install packages
 RUN \
   echo "**** install packages ****" \
-  && sed -i 's/main/main contrib non-free/' /etc/apt/sources.list \
+  && sed -i 's/main/main contrib non-free non-free-firmware/' /etc/apt/sources.list.d/debian.sources \
   && apt update \
   && apt full-upgrade -y \
   && apt install -y --no-install-recommends \
