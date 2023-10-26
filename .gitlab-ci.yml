@@ -28,6 +28,7 @@ variables:
   script:
     - |
       tag="${DOCKER_TAG}-${QBITTORRENT_VERSION}-${LIBTORRENT_VERSION}"
+      tag_version="${QBITTORRENT_VERSION}-${DOCKER_TAG}"
 
       # Build
       if [ -n "${OS_TAG}" ]; then
@@ -46,9 +47,16 @@ variables:
 
         # latest
         if [ "${DOCKER_TAG}" == "stable" ]; then
-          # latest
+          # Latest
           docker tag "${CI_REGISTRY_IMAGE}:${tag}" "${CI_REGISTRY_IMAGE}:latest"
           docker push "${CI_REGISTRY_IMAGE}:latest"
+          # Version
+          docker tag "${CI_REGISTRY_IMAGE}:${tag}" "${CI_REGISTRY_IMAGE}:${QBITTORRENT_VERSION}"
+          docker push "${CI_REGISTRY_IMAGE}:${QBITTORRENT_VERSION}"
+        else
+          # Version-tag
+          docker tag "${CI_REGISTRY_IMAGE}:${tag}" "${CI_REGISTRY_IMAGE}:${tag_version}"
+          docker push "${CI_REGISTRY_IMAGE}:${tag_version}"
         fi
       fi
   rules:
@@ -60,10 +68,10 @@ build:stable:
   variables:
     DOCKER_TAG: stable
 
-build:stable-edge:
+build:edge:
   extends: .build
   variables:
-    DOCKER_TAG: stable-edge
+    DOCKER_TAG: edge
     OS_TAG: edge
 
 # Debian
