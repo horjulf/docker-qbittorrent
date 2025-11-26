@@ -10,9 +10,9 @@ variables:
 # Build template
 .build:
   stage: build
-  image: docker:28
+  image: docker:29
   services:
-    - docker:28-dind
+    - docker:29-dind
   variables:
     QBITTORRENT_LATEST: "5.1.4"
     LIBTORRENT_LATEST: "2.0.11"
