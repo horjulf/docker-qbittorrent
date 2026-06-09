@@ -6,13 +6,14 @@ variables:
   DOCKER_TLS_CERTDIR: "/certs"
   DOCKER_CERT_PATH: "/certs/client"
   DOCKER_CLI_EXPERIMENTAL: "enabled"
+  FF_NETWORK_PER_BUILD: "true"
 
 # Build template
 .build:
   stage: build
   image: docker:29
   services:
-    - docker:29-dind
+    - name: docker:29-dind
   variables:
     QBITTORRENT_LATEST: "5.2.1"
     LIBTORRENT_LATEST: "2.0.13"
