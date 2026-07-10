@@ -8,6 +8,7 @@
   "labels": [
     "dependencies"
   ],
+  "assigneesFromCodeOwners": true,
   "semanticCommits": "enabled",
   "customManagers": [
     {
