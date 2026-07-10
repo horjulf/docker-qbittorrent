@@ -18,7 +18,7 @@ ENV \
   S6_SERVICES_GRACETIME=180000 \
   S6_KILL_GRACETIME=3000
 
-# Install packages
+# Install packages
 RUN \
   echo "**** install packages ****" \
   && apk add --no-cache --upgrade \
@@ -40,7 +40,7 @@ RUN \
     /root/.cache \
     /tmp/*
 
-# Add root files
+# Add root files
 COPY ["root/", "/"]
 
 # Volumes

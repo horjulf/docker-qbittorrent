@@ -18,7 +18,7 @@ ENV \
   S6_SERVICES_GRACETIME=180000 \
   S6_KILL_GRACETIME=3000
 
-# Install packages
+# Install packages
 RUN \
   echo "**** install packages ****" \
   && sed -i 's/main/main contrib non-free non-free-firmware/' /etc/apt/sources.list.d/debian.sources \
@@ -43,7 +43,7 @@ RUN \
     /var/lib/apt/lists/* \
     /tmp/*
 
-# Add root files
+# Add root files
 COPY ["root/", "/"]
 
 # Volumes
