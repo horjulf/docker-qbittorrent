@@ -1,0 +1,77 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":disableRateLimiting"
+  ],
+  "dependencyDashboard": true,
+  "labels": [
+    "dependencies"
+  ],
+  "semanticCommits": "enabled",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.gitlab-ci\\.yml$/"
+      ],
+      "matchStrings": [
+        "QBITTORRENT_(?:LATEST|VERSION): \"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "qbittorrent",
+      "packageNameTemplate": "qbittorrent/qBittorrent",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^release-(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.gitlab-ci\\.yml$/"
+      ],
+      "matchStrings": [
+        "LIBTORRENT_LATEST: \"(?<currentValue>2\\.0\\.[^\"]+)\"",
+        "LIBTORRENT_VERSION: \\[\"(?<currentValue>2\\.0\\.[^\"]+)\""
+      ],
+      "depNameTemplate": "libtorrent-2.0",
+      "packageNameTemplate": "arvidn/libtorrent",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/^\\.gitlab-ci\\.yml$/"
+      ],
+      "matchStrings": [
+        "LIBTORRENT_VERSION: \\[[^\\]]*?\"(?<currentValue>1\\.2\\.[^\"]+)\""
+      ],
+      "depNameTemplate": "libtorrent-1.2",
+      "packageNameTemplate": "arvidn/libtorrent",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.+)$"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": [
+        "qbittorrent",
+        "libtorrent-2.0",
+        "libtorrent-1.2"
+      ],
+      "semanticCommitType": "feat",
+      "semanticCommitScope": null
+    },
+    {
+      "matchDepNames": [
+        "libtorrent-2.0"
+      ],
+      "allowedVersions": "/^v?2\\.0\\./"
+    },
+    {
+      "matchDepNames": [
+        "libtorrent-1.2"
+      ],
+      "allowedVersions": "/^v?1\\.2\\./"
+    }
+  ]
+}
