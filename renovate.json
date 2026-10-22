@@ -30,10 +30,10 @@
         "/^\\.gitlab-ci\\.yml$/"
       ],
       "matchStrings": [
-        "LIBTORRENT_LATEST: \"(?<currentValue>2\\.0\\.[^\"]+)\"",
-        "LIBTORRENT_VERSION: \\[\"(?<currentValue>2\\.0\\.[^\"]+)\""
+        "LIBTORRENT_LATEST: \"(?<currentValue>2\\.[^\"]+)\"",
+        "LIBTORRENT_VERSION: \\[\"(?<currentValue>2\\.[^\"]+)\""
       ],
-      "depNameTemplate": "libtorrent-2.0",
+      "depNameTemplate": "libtorrent-2",
       "packageNameTemplate": "arvidn/libtorrent",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.+)$"
@@ -56,7 +56,7 @@
     {
       "matchDepNames": [
         "qbittorrent",
-        "libtorrent-2.0",
+        "libtorrent-2",
         "libtorrent-1.2"
       ],
       "semanticCommitType": "feat",
@@ -64,9 +64,9 @@
     },
     {
       "matchDepNames": [
-        "libtorrent-2.0"
+        "libtorrent-2"
       ],
-      "allowedVersions": "/^v?2\\.0\\./"
+      "allowedVersions": "/^v?2\\./"
     },
     {
       "matchDepNames": [

@@ -15,15 +15,15 @@ variables:
   services:
     - name: docker:29-dind
   variables:
-    QBITTORRENT_LATEST: "5.2.4"
-    LIBTORRENT_LATEST: "2.0.15"
+    QBITTORRENT_LATEST: "5.3.0"
+    LIBTORRENT_LATEST: "2.1.2"
     DOCKER_TAG: ""
     DOCKERFILE: Dockerfile
     OS_TAG: ""
   parallel:
     matrix:
-      - QBITTORRENT_VERSION: "5.2.4"
-        LIBTORRENT_VERSION: ["2.0.15", "1.2.20"]
+      - QBITTORRENT_VERSION: "5.3.0"
+        LIBTORRENT_VERSION: ["2.1.2", "1.2.20"]
   before_script:
     - docker login -u "${CI_REGISTRY_USER}" -p "${CI_REGISTRY_PASSWORD}" ${CI_REGISTRY}
   script:
